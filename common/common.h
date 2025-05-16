@@ -202,6 +202,9 @@ struct common_params_speculative {
     struct cpu_params cpuparams_batch;
 
     struct common_params_model model;
+
+    ggml_type cache_type_k = GGML_TYPE_F16; // KV cache data type for the K
+    ggml_type cache_type_v = GGML_TYPE_F16; // KV cache data type for the V
 };
 
 struct common_params_vocoder {

@@ -1928,9 +1928,9 @@ struct server_context {
             params_dft.n_gpu_layers = params_base.speculative.n_gpu_layers;
             params_dft.n_parallel   = 1;
 
-            // force F16 KV cache for the draft model for extra performance
-            params_dft.cache_type_k = GGML_TYPE_F16;
-            params_dft.cache_type_v = GGML_TYPE_F16;
+            // tip: use F16 KV cache type when possible for the draft model for extra performance
+            params_dft.cache_type_k = params_base.speculative.cache_type_k;
+            params_dft.cache_type_v = params_base.speculative.cache_type_v;
 
             llama_init_dft = common_init_from_params(params_dft);
 
